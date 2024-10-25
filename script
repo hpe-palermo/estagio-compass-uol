@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Definir diretório de saída absoluto
+output_dir="/ler-status-servidor"
+online_file="$output_dir/nginx_online.log"
+offline_file="$output_dir/nginx_offline.log"
+
+# Pegar data e hora atuais
+current_time=$(date "+%Y-%m-%d %H:%M:%S")
+
+# Verificar status do Nginx usando caminho absoluto para o systemctl
+status=$(/bin/systemctl is-active nginx)
+
+# Se o Nginx estiver online
+if [ "$status" == "active" ]; then
+    echo "$current_time - nginx - ONLINE - Nginx is running." >> $online_file
+else
+    echo "$current_time - nginx - OFFLINE - Nginx is not running!" >> $offline_file
+fi
+
