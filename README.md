@@ -1,5 +1,6 @@
 
 
+
 # Subir um servidor Nginx e verificar seu status
 
 Neste projeto, é demonstado o passo a passo para criar e levantar um servidor nginx no ambiente Linux. 
@@ -97,15 +98,15 @@ cada 5 minutos
 	crontab -e
  	```
 
- No arquivo, adicione:
-	```
+- No arquivo, adicione:
+	 ```
 	*/5 * * * * sh script.sh
-	```
- 
- Adicione permissão para executar:
  	```
-	chmod +x script.sh
+- Conceda a permissão para executar:
+	 ```
+	chmod +x script.sh 
 	```
+
 	
 ### Fazer o versionamento da atividade
 
