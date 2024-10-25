@@ -94,7 +94,17 @@ Abra o navegador e digite 'localhost' ou abra o terminal e digite `curl localhos
 script a
 cada 5 minutos
 	```
+	crontab -e
+ 	```
+
+ No arquivo, adicione:
+	```
 	*/5 * * * * sh script.sh
+	```
+ 
+ Adicione permissão para executar:
+ 	```
+	chmod +x script.sh
 	```
 	
 ### Fazer o versionamento da atividade
