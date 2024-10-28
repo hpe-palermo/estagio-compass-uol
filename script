@@ -13,7 +13,7 @@ status=$(systemctl is-active nginx)
 
 # Se o Nginx estiver online
 if [ "$status" = "active" ]; then
-    echo "$current_time - nginx - ONLINE - Nginx is running." >> $online_file
+    echo "$current_time - nginx - ONLINE - Nginx está online!" >> $online_file
 else
-    echo "$current_time - nginx - OFFLINE - Nginx is not running!" >> $offline_file
+    echo "$current_time - nginx - OFFLINE - Nginx está offline!" >> $offline_file
 fi
