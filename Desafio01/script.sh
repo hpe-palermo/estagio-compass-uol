@@ -17,3 +17,5 @@ if [ "$status" = "active" ]; then
 else
     echo "$current_time - nginx - OFFLINE - Nginx está offline!" >> $offline_file
 fi
+./script.sh
+
