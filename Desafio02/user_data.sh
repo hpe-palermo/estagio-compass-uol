@@ -2,7 +2,13 @@
 # Atualiza o sistema e instala dependências
 sudo apt-get update -y
 sudo apt-get upgrade -y
-sudo apt-get install -y docker.io aws-cli
+sudo apt-get install -y docker.io
+
+sudo apt-get install -y unzip curl
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
 
 # Inicia o Docker e configura para iniciar com o sistema
 sudo systemctl start docker
