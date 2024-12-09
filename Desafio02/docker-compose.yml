@@ -6,10 +6,10 @@ services:
     ports:
       - "80:80"
     environment:
-      WORDPRESS_DB_HOST: <RDS-ENDPOINT>:3306
-      WORDPRESS_DB_USER: <RDS-USER>
-      WORDPRESS_DB_PASSWORD: <RDS-PASSWORD>
-      WORDPRESS_DB_NAME: <RDS-DATABASE>
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_PASSWORD}
     volumes:
       - wordpress-data:/var/www/html
     networks:
@@ -20,7 +20,7 @@ volumes:
     driver: local
     driver_opts:
       type: "nfs"
-      o: "addr=<EFS-ENDPOINT>,rw"
+      o: "addr=<EFS-ENDPOINT>,rw"  # Substitua <EFS-ENDPOINT> pelo endpoint do seu EFS
       device: ":/"
 
 networks:
