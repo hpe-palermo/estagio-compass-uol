@@ -15,7 +15,32 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo reboot
 
 # iniciar o wordpress
-# olhar EOF Linux - ele ja formata!
-# cat <<EOF > nome_arquivo
-# conteudo
-# EOF
+cat <<EOF > docker-compose.yml
+version: '3.9'
+
+services:
+
+  wordpress:
+    image: wordpress
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+    volumes:
+      - wordpress:/var/www/html
+
+volumes:
+  wordpress:
+EOF
+
+# Instalar o Cliente MySQL no Amazon Linux
+sudo wget https://dev.mysql.com/get/mysql80-community-release-el9-1.noarch.rpm
+sudo yum install mysql80-community-release-el9-1.noarch.rpm -y 
+sudo yum install mysql-community-server -y
+sudo rm -f /etc/pki/rpm-gpg/RPM-GPG-KEY-mysql
+sudo rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2023
+sudo systemctl start mysqld
