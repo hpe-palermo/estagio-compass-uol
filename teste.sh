@@ -1,4 +1,7 @@
 #!/bin/bash
 
-export NOME="Hick" USERNAME="hk_hick" IDADE=19
-echo "Olá, $NOME($USERNAME)"
+# Carregar variáveis do arquivo .env
+source .env
+
+# Exibir o valor da variável
+echo $MY_VAR
