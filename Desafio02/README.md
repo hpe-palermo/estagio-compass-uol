@@ -1,6 +1,6 @@
 # Desafio 02 - Projeto: Implantação de WordPress na AWS
 
-![Tela inicial do WordPress](https://www.hostinger.com.br/tutoriais/wp-content/uploads/sites/12/2023/05/tela-inicial-wordpress.jpg)
+![alt text](image-1.png)
 
 ## Introdução
 
@@ -38,23 +38,29 @@ Nesta etapa, são demonstradas as configurações dos recursos necessários para
 
 - **Security Groups**
 
-  - Grupo de segurança para as instâncias:
+  - **Grupo de segurança para as instâncias**:
     - Nome: my-sec-grp-ec2
     - Portas de entrada:
-      - HTTP 80 via my-sec-grp-lb
-	    - permitir o acesso somente através do Load Balancer
-	  - SSH 22 via minha-máquina
+		| Tipo  | Protocolo |  Porta |         Origem           |
+		|-------|-----------|--------|--------------------------|
+		| HTTP  |    TCP    |   80   | Grupo de Segurança do LB |
+		| SSH   |    TCP    |   22   | IP da máquina            |
   - Grupo de segurança para o RDS:
-	  - MySQL/Aurora 3306 via my-sec-grp-ec2
-	    - permitir o acesso somente através das instâncias
+    - Portas de entrada:
+		|      Tipo      | Protocolo | Porta |           Origem              |
+		|----------------|-----------|-------|-------------------------------|
+		| MySQL/Aurora   |    TCP    |  3306 | Grupo de Segurança do EC2     |
   - Grupo de segurança para o EFS:
-	  - NFS 2049 via my-sec-grp-ec2
-	    - permitir o acesso somente através das instâncias
+    - Portas de entrada:
+		| Tipo  | Protocolo | Porta |         Origem            |
+		|-------|-----------|-------|---------------------------|
+		|  NFS  |    TCP    | 2049  | Grupo de Segurança do EC2 |
   - Grupo de segurança para o Load Balancer:
     - Nome: my-sec-grp-lb
 	- Portas de entrada:
-   	  - HTTP 80 via 0.0.0.0/0
-	    - permite o acesso público
+		| Tipo  | Protocolo |  Porta |  Origem   |
+		|-------|-----------|--------|-----------|
+		| HTTP  |    TCP    |   80   | 0.0.0.0/0 |
 
 - **Internet Gateway**
 
