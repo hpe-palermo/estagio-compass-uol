@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Carregar variáveis do arquivo .env
-source .env
-
-# Exibir o valor da variável
-echo $MY_VAR
+export DIRETORIO_VOLUME="/mnt/dados"
+touch $DIRETORIO_VOLUME/dados.txt
+ls $DIRETORIO_VOLUME
