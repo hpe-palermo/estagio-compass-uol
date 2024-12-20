@@ -49,12 +49,12 @@ Nesta etapa, são demonstradas as configurações dos recursos necessários para
     - Portas de entrada:
 		|      Tipo      | Protocolo | Porta |           Origem              |
 		|----------------|-----------|-------|-------------------------------|
-		| MySQL/Aurora   |    TCP    |  3306 | Grupo de Segurança do EC2     |
+		| MySQL/Aurora   |    TCP    |  3306 | Grupo de Segurança da EC2     |
   - Grupo de segurança para o EFS:
     - Portas de entrada:
 		| Tipo  | Protocolo | Porta |         Origem            |
 		|-------|-----------|-------|---------------------------|
-		|  NFS  |    TCP    | 2049  | Grupo de Segurança do EC2 |
+		|  NFS  |    TCP    | 2049  | Grupo de Segurança da EC2 |
   - Grupo de segurança para o Load Balancer:
     - Nome: my-sec-grp-lb
 	- Portas de entrada:
@@ -78,14 +78,11 @@ Nesta etapa, são demonstradas as configurações dos recursos necessários para
 
 - **Subnets**
 
-  - Subnet 1:
-    - Nome da instância: my-subnet-01
-    - Faixa de de IPs para a subnet: 10.0.1.0/24
-    - Zona de disponibilidade: us-east-1a
-  - Subnet 2:
-    - Nome da instância: my-subnet-02
-    - Faixa de de IPs para a subnet: 10.0.2.0/24
-    - Zona de disponibilidade: us-east-1b
+  - |     Nome     | Faixa de IP |     AZ     |
+    |--------------|-------------|------------|
+    | my-subnet-01 | 10.0.1.0/24 | us-east-1a |
+    | my-subnet-02 | 10.0.2.0/24 | us-east-1b |
+  
   - Anexar as subnets ao Route Table
   
 - **EFS**
