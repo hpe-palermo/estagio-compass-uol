@@ -1,6 +1,6 @@
 # Desafio 02 - Projeto: Implantação de WordPress na AWS
 
-![alt text](image-1.png)
+![alt text](image.png)
 
 ## Introdução
 
