@@ -25,7 +25,7 @@ Este projeto demonstra a configuração e o deployment de uma aplicação WordPr
 
   - Sistema de arquivos compartilhado utilizado para armazenar arquivos estáticos do WordPress (uploads, temas e plugins), acessível simultaneamente por todas as instâncias.
 
-## Criação dos recursos
+## Criação e configuração dos recursos
 
 Nesta etapa, são demonstradas as configurações dos recursos necessários para a criação da arquitetura do projeto e sua execução/inicialização.
 
@@ -41,7 +41,7 @@ Nesta etapa, são demonstradas as configurações dos recursos necessários para
   - Grupo de segurança para as instâncias:
     - Nome: my-sec-grp-ec2
     - Portas de entrada:
-   	  - HTTP 80 via my-sec-grp-lb
+      - HTTP 80 via my-sec-grp-lb
 	    - permitir o acesso somente através do Load Balancer
 	  - SSH 22 via minha-máquina
   - Grupo de segurança para o RDS:
@@ -124,7 +124,7 @@ Nesta etapa, são demonstradas as configurações dos recursos necessários para
   - Nome da instância: my-target-group
   - Selecionar as instâncias
   - Selecionar a porta 80
-  - Registrar
+  - Registrar instâncias
   - Target Group criado!
 
 - **Load Balancer**
@@ -135,7 +135,7 @@ Nesta etapa, são demonstradas as configurações dos recursos necessários para
   - Target Group: my-target-group
   - Load Balancer criado!
 
-## Script de Instalação/Configuração/Inicialização
+## Script de Inicialização
 
 O script de inicialização (user_data.sh) para instalação automática do Docker, configuração do docker-compose.yml para a criação dos containers do WordPress.
 
